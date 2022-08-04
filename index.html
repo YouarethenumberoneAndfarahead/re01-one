@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <body>
+      <div>
+          <h1>名字</h1>
+          <h2 id="name">耕耕</h2>
+          <hr>
+          <h1>年龄</h1>
+          <h2 id="age">14</h2>
+      </div>
+      <script src="//需要有个可以索引的服务器地址（本地）"></Script>
+      <script>
+          $.ajax({
+            type:"get",
+            url:"//具体的返回位置",
+            dataType:'json',
+            success:function(response){
+
+                var res = JSON.parse(response);//调用后端代码串
+                document.getElementById("name").innerText = res.name;
+                document.getElementById("age").innerText = res.age;
+            }
+        
+          });
+      </script>
+  </body>
+</html>
